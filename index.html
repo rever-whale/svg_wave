@@ -1,0 +1,64 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="index.scss">
+  <style>
+    .top {
+      height: 100vh;
+      transition: 1s ease;
+    }
+
+    .bottom {
+      height: 0vh;
+      background-color: #2d55aa;
+    }
+
+    .btn {
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top"></div>
+  <svg class="editorial" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 24 150 28" preserveAspectRatio="none">
+    <defs>
+      <path id="gentle-wave" d="M-160 44c30 0 
+        58-18 88-18s
+        58 18 88 18 
+        58-18 88-18 
+        58 18 88 18
+        v44h-352z" />
+    </defs>
+    <g class="parallax">
+      <use xlink:href="#gentle-wave" x="50" y="0" fill="#4579e2" />
+      <use xlink:href="#gentle-wave" x="50" y="3" fill="#3461c1" />
+      <use xlink:href="#gentle-wave" x="50" y="6" fill="#2d55aa" />
+    </g>
+  </svg>
+  <div class="bottom"></div>
+  <button class="btn">버튼</button>
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
+  <script>
+    const $top = document.querySelector('.top');
+    const $bottom = document.querySelector('.bottom');
+    const $btn = document.querySelector('.btn');
+    let _top = 100;
+    let _bottom = 0;
+
+
+    $btn.onclick = () => {
+      console.log('click');
+      _top -= 10;
+      _bottom += 10;
+      $top.style.height = `${_top}vh`;
+      $bottom.style.height = `${_bottom}vh`;
+    };
+  </script>
+</body>
+
+</html>
